@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ramblings of an geek">
+    
+    <link rel="shortcut icon" href="https://matshellman.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <title>Blog moving to GitHub</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://matshellman.github.io/">nixadmins.net</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Blog moving to GitHub</h1><time>October 29, 2020</time></header><p>It&rsquo;s the time of year when Wordpress.com is reminding me to renew my subscription
+and since I really don&rsquo;t blog as much as I used to back in the days, the price
+is just a bit to high.</p>
+<h2 id="hosting-or-not">Hosting or not?</h2>
+<p>I started to look for a replacement service, initially I was thinking of hosting
+my it on a virtual server somewhere as that&rsquo;s half the price of Wordpress. True
+that it would make me manage the server but with ansible that would still be
+trivial. First I was looking at <a href="https://www.linode.com" title="Linode" target="_blank">Linode</a> as the
+cheapest server was only a cup of coffee and this was reasonable for a monthly
+price, and on it run Wordpress like I used to when I was really active.</p>
+<p>As it sometimes happens, curiosity kicked in and I stared digging into static
+site generators. And the simplicity they bring was pulling me in. I already
+use MarkDown for a lot and looking at <a href="https://gohugo.io" title="Hugo" target="_blank">Hugo</a> made
+me even more curious if I could run everything from it.</p>
+<p>Done and dusted, easy local installation with <a href="https://brew.sh" title="Homebrew" target="_blank">Brew</a>
+was screaming go,go, gooooo.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install hugo
+</code></pre></div><p>Now the hosting, should it run on my rented hardware or not. After some
+consideration I decided to try Github pages, for now this will be the solution
+although I might change that in the future if I want to have a server running
+somewhere again.</p>
+<h2 id="can-it-be-this-simple">Can it be this simple?</h2>
+<p>After installing and initializing my site locally I copied my blogposts from
+wordpress to .md files. The simplicity is just amazing. The biggest headache I
+had was to find a simple engough theme to use. After some trials I ended up with
+<a href="https://themes.gohugo.io/etch/" title="Hugo Etch Theme" target="_blank">Etch</a>. It was simple enough
+and I was able to get the few changes done I wanted.</p>
+<p>The use of git and Github is also extremely nice, it just fits in my workflow.
+Fits like a glove some would say, while we Finns say &ldquo;Fits like a fist in the eye&rdquo;.
+I can keep everything with me all the time, and when I change to a new device
+everything is seconds away.</p>
+</article>
+
+        </main><footer id="footer">
+    Copyright © 2020 Mats Hellman
+</footer>
+</body>
+</html>

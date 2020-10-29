@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ramblings of an geek">
+    
+    <link rel="shortcut icon" href="https://matshellman.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <title>MacOS : Unhide dock faster</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://matshellman.github.io/">nixadmins.net</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>MacOS : Unhide dock faster</h1><time>December 2, 2019</time></header><p>As I’ve stated I more or less cross paths almost on a daily basis with all the
+major operating systems. Most of the time my main driver is the 2018 MacBook Pro
+which is with me whenever I leave the comfort of the home-office.</p>
+<p>Although the resolution is good on this device the dock at the bottom takes up
+a bit of space. I must say I’m not a heavy dock user, I’ve learnt long ago to
+use CMD+Space to find my applications, just like I use the Windows key in
+Windows 10 and MOD+D in my i3wm on Arch Linux. In my normal configuration I keep
+the dock hidden and if you keep the default values you, for a split second,
+wonder if it’s coming out at all. So, tweaking it to appear faster felt like a
+good idea. Three commands later and we are done. As always, this blog is mostly
+so I don’t have to search information on this again and try to find my personal
+sweetspot.</p>
+<p>Open a terminal and run the following commands, in the following order:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ defaults write com.apple.dock autohide-delay -float <span style="color:#2aa198">0</span>  
+$ defaults write com.apple.dock autohide-time-modifier -float 0.5  
+$ killall Dock  
+</code></pre></div><p>Now it does not feel like the Dock is stuck in mud somewhere, it actually
+appears fast enough the few times I really need it.</p>
+</article>
+
+        </main><footer id="footer">
+    Copyright © 2020 Mats Hellman
+</footer>
+</body>
+</html>

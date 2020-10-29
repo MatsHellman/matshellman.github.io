@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ramblings of an geek">
+    
+    <link rel="shortcut icon" href="https://matshellman.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <title>Adventures in i3 land</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://matshellman.github.io/">nixadmins.net</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Adventures in i3 land</h1><time>April 11, 2020</time></header><p>As a geek I do like a lot of the modern things. At work I spend my time working
+with device services ranging from cloud services like Intune to things like
+traditional printing in factory floors.</p>
+<p>There is very little that get’s me as exited as opening a box with new hardware
+in it, but from time to time I feel the hardware improvements are eaten alive
+by the ever growing complexity of the software. So while I spend a lot of my
+time reading about new things, I also like to go back in time and take a look
+at what can be done with older hardware instead of throwing it away.</p>
+<p>As an example my daughter is using a Mid 2009 MacBook Pro for her needs at the
+moment. With an SSD and 8Gb of RAM it works a lot better than expected. I have
+a bunch of old ThinkPad’s that have been neglected for quite some time. One of
+them being an old X220, and it is the device I’m writing on at the moment.
+And speaking of writing, the keyboard on this thing is second to none. I’ve
+never typed on a better keyboard than the old Thinkpad’s. They are in my
+personal opinion better than any of the current keyboards and so durable.</p>
+<p><img src="/images/x220-001.jpg" alt="X220-001"></p>
+<p><img src="/images/x220-002.jpg" alt="X220-002"></p>
+<p>Considering this device was released in 2011, almost 10 years ago, it still
+handles what I throw at it extremely well. I did not try Windows 10 in it
+although I think it would have ran decently as well, instead it’s now running
+Debian testing with the i3 window manager. A cold boot from entering the
+encryption password takes about 7 seconds to the desktop. So even by modern
+standards more than decent, in fact a lot faster than my 2018 MacBook Pro and
+even faster than my Surface Laptop 3.</p>
+<h3 id="i3-window-manager">i3 window manager</h3>
+<p>Being fast does come with it’s downsides, if you don’t like them. For me, I
+don’t see it as a downside, quite the opposite. As the hardware is older I set
+out to use something lightweight. Tiling window managers have fascinated me for
+a while now and I thought this hardware could really benefit from one. So
+instead of the large WM’s in Linux I decided to go with i3 and for the login
+screen Slim DM. Both extremely light and extremely configurable.</p>
+<p><img src="/images/x220-scrot-001.png" alt="X220 Screenshot"></p>
+<p>Finding your comfort with a tiling window manager might require some work, at
+least it did for me. As an example there are things that are so wired in my
+brain I have issues trying to change them. One such is the Windows + L key to
+lock the computer. My i3 configuration used the VIM keys to move between open
+windows, meaning H,J,K,L were bind to that movement. I changed them to the
+arrow keys, not perfect, but I do need my Windows + L to lock my session.</p>
+<h3 id="slimlock">Slimlock</h3>
+<p>As I stated above I use Windows + L to lock my screen. This is something really
+wired into my brain, leaving a computer I always do this, needed or not. i3
+has this functionality in i3lock and you can call that to lock your screen. I
+however wanted to use the same nice GUI that Slim provides me on startup.</p>
+<p>I also wanted the system to lock whenever I put my computer to sleep or close
+the lid so slimlock had to be called in those cases as well.</p>
+<p>My i3 config, contains,</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+<span style="color:#586e75"># Lock screen</span>
+bindsym <span style="color:#268bd2">$mod</span>+l <span style="color:#b58900">exec</span> “slimlock”
+
+</code></pre></div><p>and I created the a new file in /etc/systemd/system/i3lock@.service containing;</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-systemd" data-lang="systemd">
+<span style="color:#719e07">[Unit]</span>
+Description <span style="color:#719e07">=</span><span style="color:#2aa198"> Lock screen when going to sleep/suspend/hibernate</span>
+
+<span style="color:#719e07">[Service]</span>
+User<span style="color:#719e07">=</span><span style="color:#2aa198">%I</span>
+Type<span style="color:#719e07">=</span><span style="color:#2aa198">simple</span>
+Environment<span style="color:#719e07">=</span><span style="color:#2aa198">DISPLAY=:0</span>
+ExecStart<span style="color:#719e07">=</span><span style="color:#2aa198">/usr/bin/slimlock</span>
+TimeoutSec<span style="color:#719e07">=</span><span style="color:#2aa198">infinity</span>
+
+<span style="color:#719e07">[Install]</span>
+WantedBy<span style="color:#719e07">=</span><span style="color:#2aa198">sleep.target</span>
+WantedBy<span style="color:#719e07">=</span><span style="color:#2aa198">suspend.target</span>
+WantedBy<span style="color:#719e07">=</span><span style="color:#2aa198">hibernate.target</span>
+</code></pre></div><p>The combination works exactly as I want it to.</p>
+<h2 id="changes-in-hardware">Changes in hardware</h2>
+<p>To make the X220 a bit more modern I added 4Gb of RAM in it. I rarely go over
+4Gb in this but still, as I had some laying around I gave it some additional
+memory. The time of HDD’s in laptops is long gone as well, so I had a Samsung
+860 SSD 1Tb driver on my table I stuffed into the laptop as well. The
+combination of the SSD and 8Gb of RAM makes the X220 fly.</p>
+<p>Before doing anything else I pulled the whole ting into pieces and replaced the
+thermal paste on the CPU, it is as I said 10 years old so it was time to get
+this done. If you have ever taken a Lenovo or IBM ThinkPad apart you start to
+appreciate the way these things are built. No laptop is easy to pull apart but
+with the servicing manuals and no-stress this was a enjoyable moment. I also
+notice the fans rarely spool up after applying some Arctic Silver paste on the
+CPU and putting everything back together.</p>
+<p><img src="/images/x220-003.jpg" alt="X220 maintenance"></p>
+<h2 id="can-you-really-do-something-on-it">Can you really do something on it?</h2>
+<p>Counting the running laptops and desktops in my house I have 5 of them in daily
+use. I really do not work on the X220 but it is able to get things done. I’ve
+tried using many of the tools I use in my daily job on it and so far have not
+had a single issue or noticeable dip in performance. Microsoft Teams is
+probably what I spend the majority of my time collaborating in and it works
+flawlessly on this device. I use O365 for email and documents, and although the
+web-versions of Word, PowerPoint and Visio are not 1:1 with the desktop
+version’s I can still be as effective in them. If I need a Windows desktop I
+can even get into one in our Cloud services meaning I really could make this
+old-timer my daily driver if I wanted to. And for my job when designing
+services for the enterprise, if I can use it from this device then anyone can
+use them from whatever they want.</p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>I’ve been reading about Coreboot quite a bit, the next step for this old Lenovo
+is to get rid of the old BIOS and clear out as much as possible from the Intel
+Management Engine, I don’t have to, but I want to. Tinkering is still fun.</p>
+</article>
+
+        </main><footer id="footer">
+    Copyright © 2020 Mats Hellman
+</footer>
+</body>
+</html>

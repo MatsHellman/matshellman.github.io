@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ramblings of an geek">
+    
+    <link rel="shortcut icon" href="https://matshellman.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <title>Hey, where&#39;s my Yubikey?</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://matshellman.github.io/">nixadmins.net</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Hey, where&#39;s my Yubikey?</h1><time>November 22, 2019</time></header><p>This post is just for myself to remember this as it was behind so many clicks
+on the oh so phenomenal <a href="https://wiki.archlinux.org" title="ArchLinux Wiki" target="_blank">ArchWiki</a>.</p>
+<p>For many years I have been using multifactor authentication where possible.
+SMS in the beginning and today mostly authenticator application(s) or the
+Yubikey(s). These together with a decent password manager make me feel at least
+a bit more secure with all the accounts and passwords I need to remember.
+If you are looking for a password manager to help make your life a bit laid back
+when it comes to password management I recommend you take a look at
+<a href="https://bitwarden.com" title="Bitwarden Password Manager" target="_blank">BitWarden</a>.</p>
+<h2 id="problems-">Problems &hellip;</h2>
+<p>Some nights ago I decided to install Arch Linux on one of my workstations. Easy
+and fast installation with a very customizable system, what’s there not to like 😀</p>
+<p>Since the system is so highly customizable, you need to read. And I do really
+love learning something new, I just have an issue remembering a week down the
+line what I did. So that’s why this post is here. This way I can find it fast
+the next time I need it.</p>
+<p>So, the problem was that my Yubikey did not show up in Firefox. First thing
+first you always check dmesg to make sure the device is even recognized.
+And so I did,</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">usb 1-2: new full-speed USB device number <span style="color:#2aa198">5</span> using xhci_hcd  
+usb 1-2: New USB device found, <span style="color:#268bd2">idVendor</span><span style="color:#719e07">=</span>1050, <span style="color:#268bd2">idProduct</span><span style="color:#719e07">=</span>0120, <span style="color:#268bd2">bcdDevice</span><span style="color:#719e07">=</span> 5.02  
+usb 1-2: New USB device strings: <span style="color:#268bd2">Mfr</span><span style="color:#719e07">=</span>1, <span style="color:#268bd2">Product</span><span style="color:#719e07">=</span>2, <span style="color:#268bd2">SerialNumber</span><span style="color:#719e07">=</span><span style="color:#2aa198">0</span>  
+usb 1-2: Product: Security Key by Yubico  
+usb 1-2: Manufacturer: Yubico
+</code></pre></div><p>And there it was. At least my system knew about it. Some
+<a href="https://duckduckgo.com" title="DuckDuckGo" target="_blank">duckduckgo.com:fu</a>
+later I found an article on
+<a href="https://wiki.archlinux.org/index.php/Firefox/Tweaks#Fido_U2F_authentication" title="ArchWiki Link" target="_blank">ArchWiki Fido U2F authentication</a>
+pointing me to the
+libu2f-host package. Easy as 1,2,3 fire up pacman install the package and
+restart the browser and my Yubikey is back in business.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S libu2f-host  
+resolving dependencies...  
+looking <span style="color:#719e07">for</span> conflicting packages...  
+</code></pre></div><p>This as stated above is not meant to be a guide on MFA or the Yubikey, just a
+placeholder for me to remember what I did if I ever run into it again.</p>
+</article>
+
+        </main><footer id="footer">
+    Copyright © 2020 Mats Hellman
+</footer>
+</body>
+</html>
