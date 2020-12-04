@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ramblings of an geek">
+    
+    <link rel="shortcut icon" href="https://nixadmins.net/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <title>Issues with Coreboot and a workaround</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://nixadmins.net/">nixadmins.net</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Issues with Coreboot and a workaround</h1><time>December 3, 2020</time></header><p>A while ago I stole the SSD drive from my Lenovo X220 to use it in another
+device. The poor X220 has been dormant in storage ever since. This week I finally
+had time to install the new drive in it and install Debian testing on it.</p>
+<h2 id="oops-we-are-not-booting">Oops we are not booting</h2>
+<p>Installation as with any Debian installation is really straight forward, but
+after the installation Coreboot dropped me to the EFI shell instead of booting
+the device correctly.</p>
+<p>Going to duckduckgo for information I found this article on Reddit,<br>
+<a href="https://www.reddit.com/r/linux4noobs/comments/7iwhee/guide_hack_together_a_functioning_efi_boot_using/">https://www.reddit.com/r/linux4noobs/comments/7iwhee/guide_hack_together_a_functioning_efi_boot_using/</a></p>
+<p>All the information is in the link, but to make sure I have it available in the future for myself I will document it here as well.</p>
+<p>To get the device to boot at all, run the command <em>map</em> in the EFI shell, this will show you all the devices EFI can see.<br>
+I did not look at the BLK devices only fsN, in my case fs0 was the correct one. So using that as a base let&rsquo;s kick of the boot.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ fs0:<span style="color:#cb4b16">\E</span>FI<span style="color:#cb4b16">\d</span>ebian<span style="color:#cb4b16">\g</span>rubx64.efi
+</code></pre></div><div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  $ sudo bash <span style="color:#586e75">#enter a root shell</span>
+  $ mkdir /boot/efi/EFI/BOOT <span style="color:#586e75">#create the default directory where coreboot is looking</span>
+  $ cp /boot/efi/EFI/debian/* /boot/efi/EFI/BOOT/ <span style="color:#586e75">#copy the EFI bits to the directory</span>
+  $ cp /boot/efi/EFI/BOOT/grubx64.efi /boot/efi/EFI/BOOT/bootx64.efi <span style="color:#586e75">#copy or rename efi file to bootx64 instead of grubx.</span>
+</code></pre></div><p>This will allow you device to boot but with every reset you will have to follow this through. I guess the same goes if you upgrade some of the boot related components, like grub as the updates will not end up in the correct directory. So don&rsquo;t see this as a fix, it&rsquo;s a workaround.<br>
+I will continue to look for a more premanent solution for the issue but for now I can boot my X220 and that does lower the urgency of the issue.</p>
+</article>
+
+        </main><footer id="footer">
+    Copyright © 2020 Mats Hellman
+</footer>
+</body>
+</html>

@@ -3,101 +3,106 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://matshellman.github.io/about/</loc>
+    <loc>https://nixadmins.net/coreboot-issues/</loc>
+    <lastmod>2020-12-03T08:09:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nixadmins.net/</loc>
+    <lastmod>2020-12-03T08:09:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nixadmins.net/post/</loc>
+    <lastmod>2020-12-03T08:09:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nixadmins.net/about/</loc>
     <lastmod>2020-10-29T21:05:33+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/moved-to-github/</loc>
+    <loc>https://nixadmins.net/moved-to-github/</loc>
     <lastmod>2020-10-29T08:09:26+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/</loc>
-    <lastmod>2020-10-29T08:09:26+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://matshellman.github.io/post/</loc>
-    <lastmod>2020-10-29T08:09:26+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://matshellman.github.io/lenovo-x220-and-audio-control-in-i3wm/</loc>
+    <loc>https://nixadmins.net/lenovo-x220-and-audio-control-in-i3wm/</loc>
     <lastmod>2020-04-21T08:09:26-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/adventures-in-i3-land/</loc>
+    <loc>https://nixadmins.net/adventures-in-i3-land/</loc>
     <lastmod>2020-04-11T08:09:26-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/photos/</loc>
+    <loc>https://nixadmins.net/photos/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/photos/warsaw-poland/</loc>
+    <loc>https://nixadmins.net/photos/warsaw-poland/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/photos/hel-poland-3/</loc>
+    <loc>https://nixadmins.net/photos/hel-poland-3/</loc>
     <lastmod>2020-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/photos/hel-poland-2/</loc>
+    <loc>https://nixadmins.net/photos/hel-poland-2/</loc>
     <lastmod>2020-01-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/photos/arizona-us/</loc>
+    <loc>https://nixadmins.net/photos/arizona-us/</loc>
     <lastmod>2020-01-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/photos/chicago-us/</loc>
+    <loc>https://nixadmins.net/photos/chicago-us/</loc>
     <lastmod>2020-01-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/photos/panaji-india-2/</loc>
+    <loc>https://nixadmins.net/photos/panaji-india-2/</loc>
     <lastmod>2020-01-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/scrolling-with-an-external-mouse-on-macos/</loc>
+    <loc>https://nixadmins.net/scrolling-with-an-external-mouse-on-macos/</loc>
     <lastmod>2019-12-03T08:00:00+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/macos-black-screen-after-sleep/</loc>
+    <loc>https://nixadmins.net/macos-black-screen-after-sleep/</loc>
     <lastmod>2019-12-03T06:00:00+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/macos-unhide-dock-faster/</loc>
+    <loc>https://nixadmins.net/macos-unhide-dock-faster/</loc>
     <lastmod>2019-12-02T08:00:00+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/hey-wheres-my-yubikey/</loc>
+    <loc>https://nixadmins.net/hey-wheres-my-yubikey/</loc>
     <lastmod>2019-11-22T08:00:00+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/nixadmins-back-from-hiatus/</loc>
+    <loc>https://nixadmins.net/nixadmins-back-from-hiatus/</loc>
     <lastmod>2019-11-21T08:00:00+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/categories/</loc>
+    <loc>https://nixadmins.net/categories/</loc>
   </url>
   
   <url>
-    <loc>https://matshellman.github.io/tags/</loc>
+    <loc>https://nixadmins.net/tags/</loc>
   </url>
   
 </urlset>
